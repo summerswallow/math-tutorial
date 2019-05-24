@@ -53,8 +53,10 @@ class BasicSimplification(Simplification):
     def generate(self, n):
         samples = []
 
-        for each in range(0,n):    
-            samples.append(self.type12())
+        while len(samples)<n:
+            x = self.type12()
+            if not x in samples:
+                samples.append(self.type12())
         self.samples=samples
 
     def output_exercises(self):
@@ -87,9 +89,11 @@ class QuotientSimplification(Simplification):
     def generate(self, n):
         samples = []
         
-        for each in range(0,n):    
+        while len(samples)<n:    
             numerator = random.randint(1, 9)*random.randint(1,9)
-            samples.append((numerator, self.type12()))
+            x=(numerator, self.type12())
+            if not x in samples:
+                samples.append(x)
         self.samples=samples
 
     def output_exercises(self):
@@ -129,13 +133,16 @@ from sympy import latex, simplify
 class MixedSimplification(Simplification):
     def generate(self, n):
         samples = []
-        for each in range(0,n):
+        while len(samples)<n:
             a = random.randint(-9,9)
             b= random.choice([-5,-4,-3, -2, -1, 1, 2,3,4,5])
             c= random.randint(-9,9)
             d= random.choice([-5,-4,-3, -2, -1, 1, 2,3,4,5])
             e = random.choice([2,3,5,6,7,8,10])
-            self.samples.append((a,b,c,d,e))
+            x=(a,b,c,d,e)
+            if not x in samples:
+                samples.append(x)
+        self.samples=samples
     
     def output_exercises(self):
         display(Markdown('#### Exercises ####'))
