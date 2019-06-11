@@ -1,6 +1,22 @@
 from IPython.display import display, Markdown
 import random
 from collections import Counter
+from IPython.display import HTML
+def toggle_button():
+    # Hide from print preview use $('div.input').html("")
+    HTML('''<script>
+code_show=true; 
+function code_toggle() {
+ if (code_show){
+ $('div.input').hide();
+ } else {
+ $('div.input').show();
+ }
+ code_show = !code_show
+} 
+$( document ).ready(code_toggle);
+</script>
+<form action="javascript:code_toggle()"><input type="submit" value="Click here to toggle on/off the raw code."></form>''')
 class Simplification():
     def __init__(self):
         self.samples = []
@@ -159,4 +175,52 @@ class MixedSimplification(Simplification):
             eq = (a+b*simsqrt(e))*(c+d*simsqrt(e))
             display(Markdown('{}) $\displaystyle {}={}$'.format(count, latex(eq), latex(simplify(eq)))))   
             
+            
+def root(a,b):
+    if a==1:
+        return b
+    if a==2:
+        return r'{{\sqrt{{{}}}}}'.format(b)
+    else:
+            return r'{{\root {} \of {{{}}}}}'.format(a,b)
+#            return r'{{\root {} \of {}}}'.format(a,b)
+
+class RadicalSimplification(Simplification):
+    def generate(self, n):
+        samples = []
+        while len(samples)<n:
+            a = random.randint(2,9)
+            b= random.randint(2,a)
+            c= random.randint(1,3)
+            d= random.randint(2,10)
+            x=[a,b,c,d]
+            random.shuffle(x[0:2])
+            if not x in samples:
+                samples.append(x)
+        self.samples=samples
+    
+    def output_exercises(self):
+        display(Markdown('#### Exercises ####'))
+        count = 0
+        for x in self.samples:
+            count +=1
+            display(Markdown('{}) $\displaystyle {}$'.format(count, root(x[0],root(x[1], root(x[2],x[3]))))))
+
+    def output_solutions(self):
+        display(Markdown('#### Solutions ####'))
+        count = 0
+        for a,b,c,d in self.samples:
+            expr = root(a,root(b, root(c,d)))
+            rad = a*b*c
+            if d==4 and rad%2==0:
+                rad=int(rad/2)
+                d=2
+            if d==9 and rad%2==0:
+                rad=int(rad/2)
+                d=3
+            if d==8 and rad %3==0:
+                rad= int(rad/3)
+                d=2
+            count+=1
+            display(Markdown('{}) $\displaystyle {}={}$'.format(count, expr, root(rad,d))))
 # document.querySelectorAll("div.input").forEach(function(a){a.remove()})
