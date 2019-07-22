@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Math Quiz</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
+</script>
+</head>
+<body>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">Logo</a>
+
+    <!-- Links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link 1</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link 2</a>
+      </li>
+
+      <!-- Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          Dropdown link
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Link 1</a>
+          <a class="dropdown-item" href="#">Link 2</a>
+          <a class="dropdown-item" href="#">Link 3</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+  <p>Navbars can also hold dropdown menus:</p>  
+  <div class="container">
+    <div class="row">
+      <div class="card bg-light mb-3">
+        <h5 class="card-header">{% block lesson_title %}{% endblock lesson_title %}</h5>
+        <div class="card-body">
+          {% block lesson_notes %}
+          {% endblock lesson_notes %}
+          <a href="#" class="btn btn-primary">Quiz Me</a>
+        </div>
+      </div>
+      <div></div>
+      {% block formulas %}
+      {% endblock formulas %}
+    </div>
+    <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+      <div class="card-header">Header</div>
+      <div class="card-body">
+        <h5 class="card-title">Dark card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+    </div>
+    <p>This example adds a dropdown menu for the "Page 1" button in the navigation bar.</p>
+  </div>
+</body>
+</html>

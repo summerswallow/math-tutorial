@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block lesson_title %}
+Basic Simplification
+{% endblock lesson_title %}
+{% block lesson_notes %}
+<p class="card-text">
+  Simplification of square roots means factoring out all squares:
+</p>
+<p class="card-text">
+  \(\sqrt{20}\) simplifies to \(2\sqrt{5}\), remember \(\sqrt{20}=\sqrt{4\times 5} = \sqrt{4}\sqrt{5}\) using (**)
+</p>
+{% endblock lesson_notes%}
+    {% block formulas %}
+    <div class="card bg-light mb-3" style="max-width: 18rem;">
+      <div class="card-header">Useful Formulas</div>
+      <div class="card-body">
+        <p class="card-text">
+          $$\eqalignno{(\sqrt{a})^2&=a&(*)\cr
+          \sqrt{ab}&=\sqrt{a}\sqrt{b}&(**)\cr}$$</p>
+      </div>
+    </div>
+    {% endblock formulas %}
