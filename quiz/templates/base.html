@@ -8,8 +8,13 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
-</script>
+          src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
+  </script>
+  <style>
+    .hidden {
+      visibility: hidden;
+    }
+  </style>
 </head>
 <body>
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -38,7 +43,7 @@
       </li>
     </ul>
   </nav>
-  <p>Navbars can also hold dropdown menus:</p>  
+  <p class="hidden">Navbars can also hold dropdown menus:</p>  
   <div class="container">
     <div class="row">
       <div class="card bg-light mb-3">
@@ -53,10 +58,10 @@
       {% block formulas %}
       {% endblock formulas %}
     </div>
-    <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-      <div class="card-header">Header</div>
+    <div class="card bg-light mb-3 hidden" style="max-width: 36rem;">
+      <div class="card-header">Exercises</div>
       <div class="card-body">
-        <h5 class="card-title">Dark card title</h5>
+        <h5 class="card-title"></h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       </div>
     </div>
