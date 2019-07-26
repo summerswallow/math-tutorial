@@ -143,7 +143,7 @@ class QuotientSimplification(Simplification):
         if c>1:
             return '{{{}\over{}}}'.format(da+db,c)
         return da+db
-    
+"""    
 from sympy import sqrt as simsqrt
 from sympy import latex, simplify
 class MixedSimplification(Simplification):
@@ -175,7 +175,7 @@ class MixedSimplification(Simplification):
             eq = (a+b*simsqrt(e))*(c+d*simsqrt(e))
             display(Markdown('{}) $\displaystyle {}={}$'.format(count, latex(eq), latex(simplify(eq)))))   
             
-            
+"""            
 def root(a,b):
     if a==1:
         return b
